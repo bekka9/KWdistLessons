@@ -1,0 +1,46 @@
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+class Student
+{
+    public:
+    int marks[3];
+    string name;
+    string surname;
+    double averageball;
+
+    void setmarks()
+        {
+            int sum = 0;
+            for (int i = 0; i < 3; ++i) {
+                cin >> marks[i];
+                sum += marks[i];
+            }
+            averageball = sum/3;
+        }
+};
+bool cmp (Student a, Student b)
+{
+    return a.averageball > b.averageball;
+}
+int main()
+{
+   int n;
+   cin >> n;
+   vector <Student> st(n);
+
+   for (int i = 0; i < n; i++)
+   {
+        cin >>  st[i].surname >> st[i].name;
+        st[i].setmarks();
+
+   }
+
+   stable_sort (st.begin(), st.end(), cmp);
+    for (int i = 0; i < n; i++)
+       cout << st[i].surname << " " << st[i].name << endl;
+    return 0;
+}
