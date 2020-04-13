@@ -6,11 +6,12 @@ vector <vector <int> > dp(n, vector<int>(m));
 
 int f(int i, int j)
 {
-
-    if (dp[i][j]!=-1)
-        return dp[i][j];
-    dp[i][j] = f(i-2,j-1)+f(i-1,j-2);
-
+    if (i>=0 && j>=0){
+        if (dp[i][j]=-1)
+        {
+            dp[i][j] = f(i-2,j-1)+f(i-1,j-2);
+        }
+    }
     return dp[i][j];
 
 }
